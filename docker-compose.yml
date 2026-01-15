@@ -1,0 +1,7 @@
+services:
+  naiv-website:
+    build: .
+    container_name: naiv-website-1
+    ports:
+      - "9416:5170"
+    restart: always

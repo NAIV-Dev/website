@@ -1,0 +1,48 @@
+api get /database {
+  alias getDatabases
+  headers {
+    authorization string required
+  }
+  return array table.Database required
+}
+
+api post /database {
+  alias createDatabase
+  headers {
+    authorization string required
+  }
+  return table.Database required
+}
+
+api get /database/:id {
+  alias getDatabase
+  headers {
+    authorization string required
+  }
+  path {
+    id number required
+  }
+  return table.Database required
+}
+
+api get /database/:id/usage-quota-in-MB {
+  alias getDatabaseUsageQuota
+  headers {
+    authorization string required
+  }
+  path {
+    id number required
+  }
+  return number required
+}
+
+api delete /database/:id {
+  alias deleteDatabase
+  headers {
+    authorization string required
+  }
+  path {
+    id number required
+  }
+  return boolean required
+}

@@ -1,0 +1,62 @@
+enum UserType {
+  EMAIL
+  GOOGLE
+}
+
+table User {
+  id bigint pk inc notnull
+  fullname varchar(500) notnull
+  email varchar(200) notnull
+  password varchar(200) notnull
+  google_user_id varchar(200)
+  type enum.UserType notnull default=EMAIL
+  max_domain_name_allowed int notnull default=5
+  max_database_allowed int notnull default=1
+  email_verification_token varchar(100)
+  created_at timestamp notnull default='NOW()'
+}
+
+enum RecordDomainType {
+  A
+  AAAA
+  CNAME
+}
+
+table DomainName {
+  id bigint pk inc notnull
+  id_user User.id notnull
+  name varchar(100) notnull
+  record_type enum.RecordDomainType notnull
+  record_value varchar(200) notnull
+  created_at timestamp notnull default='NOW()'
+  update_at timestamp notnull default='NOW()'
+  deleted_at timestamp
+}
+
+enum DNChangeHistoryType {
+  CREATE
+  UPDATE
+  DELETE
+}
+
+table DNChangeHistory {
+  id bigint pk inc notnull
+  id_domain_name DomainName.id notnull
+  type enum.DNChangeHistoryType notnull
+  payload text
+  created_at timestamp notnull default='NOW()'
+}
+
+table Database {
+  id bigint pk inc notnull
+  id_user User.id notnull
+  db_type varchar(100)
+  db_host varchar(100)
+  db_name varchar(100)
+  db_username varchar(100)
+  db_password varchar(100)
+  db_port int
+  created_at timestamp notnull default='NOW()'
+  update_at timestamp notnull default='NOW()'
+  deleted_at timestamp
+}

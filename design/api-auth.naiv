@@ -1,0 +1,60 @@
+api post /auth/login {
+  alias loginUser
+  body {
+    email string required
+    password string required
+  }
+  return {
+    token string required
+    user table.User required
+  } required
+}
+
+api post /auth/register {
+  alias registerUser
+  body {
+    fullname string required
+    email string required
+    password string required
+  }
+  return table.User required
+}
+
+api post /auth/login-with-google {
+  alias loginWithGoogle
+  body {
+    google_access_token string required
+  }
+  return {
+    token string required
+    user table.User required
+  } required
+}
+
+api post /confirm-email-registration {
+  alias confirmEmailRegistration
+  body {
+    email string required
+    token string required
+  }
+  return boolean required
+}
+
+api post /forget-password {
+  alias forgetPassword
+  body {
+    email string required
+  }
+  return boolean required
+}
+
+api post /reset-password-by-token {
+  alias resetPasswordByToken
+  body {
+    email string required
+    token string required
+    new_password string required
+    re_new_password string required
+  }
+  return boolean required
+}

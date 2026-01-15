@@ -1,0 +1,58 @@
+api get /domain {
+  alias getDomains
+  headers {
+    authorization string required
+  }
+  return array table.DomainName required
+}
+
+api post /domain {
+  alias createDomain
+  headers {
+    authorization string required
+  }
+  body {
+    record_type enum.RecordDomainType required
+    record_value string required
+    name string required
+  }
+  return table.DomainName required
+}
+
+api get /domain/:domain_name {
+  alias getDomain
+  headers {
+    authorization string required
+  }
+  path {
+    domain_name string required
+  }
+  return table.DomainName required
+}
+
+api put /domain/:domain_name {
+  alias updateDomain
+  headers {
+    authorization string required
+  }
+  path {
+    domain_name string required
+  }
+  body {
+    record_type enum.RecordDomainType required
+    record_value string required
+    name string
+  }
+  return table.DomainName required
+}
+
+api delete /domain/:domain_name {
+  alias deleteDomain
+  headers {
+    authorization string required
+  }
+  path {
+    domain_name string required
+  }
+  return boolean required
+}

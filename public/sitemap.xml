@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://naiv.dev/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/get-started</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learn-dsl</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/documentation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/milestone</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learning-resources/install-naiv-developer-tools-extension-on-vscode-vscodium</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learning-resources/what-problem-is-naiv-dsl-trying-to-solve</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learning-resources/tutorial-writing-database-structure-in-naiv</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learning-resources/tutorial-writing-rest-api-design-with-naiv</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learning-resources/tutorial-build-a-web-backend-rest-api-server-with-naiv-in-nodejs-typescript</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+  <url>
+    <loc>https://naiv.dev/learning-resources/tutorial-generate-use-client-api-from-naiv-design-on-react-frontend</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.1</priority>
+  </url>
+
+</urlset>
