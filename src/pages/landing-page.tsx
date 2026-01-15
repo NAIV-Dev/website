@@ -1,4 +1,4 @@
-import { Button, Link, Tab, Tabs } from "@heroui/react";
+import { Button, Code, Link, Tab, Tabs } from "@heroui/react";
 import { Layout } from "../layout/Layout";
 import { Features } from "../components/landing-page/Features";
 import { LearningResources } from "../components/landing-page/LearningResources";
@@ -19,6 +19,7 @@ export function LandingPage() {
               className="absolute w-[25vw] blur-xl hide-if-no-blur opacity-10 pointer-events-none select-none "
               src={'/blob1.svg'} />
           </div>
+          <Code lang="shell" color="warning">npx @naiv/ts-api -o &lt;your-project-name&gt;</Code>
           <div className="flex flex-col md:flex-row items-center gap-4">
             <Button
               as={Link}
@@ -31,25 +32,30 @@ export function LandingPage() {
               as={Link}
               href={'/get-started'}
               color="danger">
-              Get Started
+              Get Started (Typescript)
             </Button>
           </div>
-          <div className="mt-[-6px] text-center">
-            <Link
-              href={'https://marketplace.visualstudio.com/items?itemName=NaivDeveloper.naiv-vscode-extension'}
-              target="_blank"
-              showAnchorIcon
-              isExternal>
-              VSCode Extension
+          <div className="space-y-3">
+            <Link isExternal showAnchorIcon color="warning" href="/working-with-antigravity">
+              Learn how to work with AI-Assistant on Antigravity
             </Link>
-            {' '}
-            <Link
-              href={'https://open-vsx.org/extension/NaivDeveloper/naiv-vscode-extension'}
-              target="_blank"
-              showAnchorIcon
-              isExternal>
-              VSCodium Extension
-            </Link>
+            <div className="mt-[-6px] text-center">
+              <Link
+                href={'https://marketplace.visualstudio.com/items?itemName=NaivDeveloper.naiv-vscode-extension'}
+                target="_blank"
+                showAnchorIcon
+                isExternal>
+                VSCode Extension
+              </Link>
+              {' '}
+              <Link
+                href={'https://open-vsx.org/extension/NaivDeveloper/naiv-vscode-extension'}
+                target="_blank"
+                showAnchorIcon
+                isExternal>
+                VSCodium Extension
+              </Link>
+            </div>
           </div>
         </div>
         <div className="hidden lg:flex z-[2] px-6 md:px-[10%] self-center flex-col items-center">

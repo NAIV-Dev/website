@@ -14,6 +14,8 @@ import { ConfirmEmailPage, loaderConfirmEmailPage } from './pages/confirm-email'
 import { AxiosClient } from './api-client/AxiosClient'
 import { loaderResetPasswordPage, ResetPasswordPage } from './pages/reset-password'
 import { PlaygroundPage } from './pages/playground-page'
+import { GetStartedPageForTypescript, loaderGetStartedPageForTypescript } from './pages/get-started-for-typescript'
+import { loaderWorkingWithAntigravity, WorkingWithAntigravity } from './pages/working-with-antigravity'
 
 AxiosClient.BaseURL.instance.set(import.meta.env.VITE_API_ENDPOINT_URL || 'https://api-x.naiv.dev');
 createRoot(document.getElementById('root')!).render(
@@ -25,8 +27,10 @@ createRoot(document.getElementById('root')!).render(
       },
       {
         path: "/get-started",
-        element: <GetStartedPage />,
-        loader: loaderGetStartedPage,
+        // element: <GetStartedPage />,
+        // loader: loaderGetStartedPage,
+        element: <GetStartedPageForTypescript />,
+        loader: loaderGetStartedPageForTypescript
       },
       {
         path: "/learn-dsl",
@@ -67,6 +71,11 @@ createRoot(document.getElementById('root')!).render(
         path: "/reset-password",
         element: <ResetPasswordPage />,
         loader: loaderResetPasswordPage
+      },
+      {
+        path: "/working-with-antigravity",
+        element: <WorkingWithAntigravity />,
+        loader: loaderWorkingWithAntigravity
       },
     ])} />
   </HeroUIProvider>
