@@ -15,7 +15,7 @@ Make sure you have installed:
 Generate project boilerplate
 
 ```bash
-$ npx @naiv/ts-api -o project-name
+$ npx @naiv/ts-api -o your-project-name
 ```
 
 Open project on **Antigravity**
