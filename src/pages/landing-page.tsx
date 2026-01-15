@@ -35,7 +35,7 @@ export function LandingPage() {
               Get Started (Typescript)
             </Button>
           </div>
-          <div className="space-y-3">
+          <div className="space-y-3 text-center">
             <Link isExternal showAnchorIcon color="warning" href="/working-with-antigravity">
               Learn how to work with AI-Assistant on Antigravity
             </Link>
