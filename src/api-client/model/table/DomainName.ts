@@ -4,6 +4,7 @@ import { RecordDomainType } from '../../model/enum/RecordDomainType'
 export interface DomainName {
   id: number;
   id_user: number;
+  otm_id_user?: User;
   name: string;
   record_type: RecordDomainType;
   record_value: string;

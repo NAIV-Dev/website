@@ -7,6 +7,8 @@ export interface T_deleteDomain_path {
   domain_name: string
 }
 
+
+
 export type T_deleteDomain = (request: {
   headers: T_deleteDomain_headers
   path: T_deleteDomain_path
@@ -15,3 +17,4 @@ export type T_deleteDomain = (request: {
 export const method = 'delete';
 export const url_path = '/domain/:domain_name';
 export const alias = 'deleteDomain';
+export const is_streaming = false;

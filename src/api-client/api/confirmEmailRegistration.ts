@@ -5,6 +5,8 @@ export interface T_confirmEmailRegistration_body {
   token: string
 }
 
+
+
 export type T_confirmEmailRegistration = (request: {
   body: T_confirmEmailRegistration_body
 }, base_url?: string) => Promise<boolean>;
@@ -12,3 +14,4 @@ export type T_confirmEmailRegistration = (request: {
 export const method = 'post';
 export const url_path = '/confirm-email-registration';
 export const alias = 'confirmEmailRegistration';
+export const is_streaming = false;

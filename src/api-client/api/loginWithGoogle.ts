@@ -9,6 +9,8 @@ interface ReturnType_0 {
   user: User
 }
 
+
+
 export type T_loginWithGoogle = (request: {
   body: T_loginWithGoogle_body
 }, base_url?: string) => Promise<ReturnType_0>;
@@ -16,3 +18,4 @@ export type T_loginWithGoogle = (request: {
 export const method = 'post';
 export const url_path = '/auth/login-with-google';
 export const alias = 'loginWithGoogle';
+export const is_streaming = false;

@@ -7,6 +7,8 @@ export interface T_deleteDatabase_path {
   id: number
 }
 
+
+
 export type T_deleteDatabase = (request: {
   headers: T_deleteDatabase_headers
   path: T_deleteDatabase_path
@@ -15,3 +17,4 @@ export type T_deleteDatabase = (request: {
 export const method = 'delete';
 export const url_path = '/database/:id';
 export const alias = 'deleteDatabase';
+export const is_streaming = false;

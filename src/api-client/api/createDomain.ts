@@ -11,6 +11,8 @@ export interface T_createDomain_body {
   name: string
 }
 
+
+
 export type T_createDomain = (request: {
   headers: T_createDomain_headers
   body: T_createDomain_body
@@ -19,3 +21,4 @@ export type T_createDomain = (request: {
 export const method = 'post';
 export const url_path = '/domain';
 export const alias = 'createDomain';
+export const is_streaming = false;

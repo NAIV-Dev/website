@@ -15,6 +15,7 @@ export function ZSDatabaseView(props: ZSDatabaseViewProps) {
   const [create_modal_open, setCreateModalOpen] = useState<boolean>(false);
   const [delete_modal_open, setDeleteModalOpen] = useState<boolean>(false);
   const [selected_db, setSelectedDB] = useState<Database>();
+  const [label, setLabel] = useState<string>('');
 
   const [loading, setLoading] = useState<boolean>(false);
   const [loading_submit, setLoadingSubmit] = useState<boolean>(false);
@@ -37,7 +38,10 @@ export function ZSDatabaseView(props: ZSDatabaseViewProps) {
   async function createDatabase() {
     try {
       setLoadingSubmit(true);
-      await AxiosClient.createDatabase({ headers: { authorization: ZSUtility.getToken()} });
+      await AxiosClient.createDatabase({
+        headers: { authorization: ZSUtility.getToken()},
+        body: { label }
+      });
       await init();
       addToast({
         title: 'Database succesfully created'
@@ -104,6 +108,14 @@ export function ZSDatabaseView(props: ZSDatabaseViewProps) {
                 lg:flex-row lg:items-start lg:justify-between
               `}>
               <div className="flex flex-col items-start gap-[3px] w-full">
+                <div className="flex flex-col lg:flex-row lg:items-center flex-wrap gap-2 mb-1 w-full">
+                  <div className="p-1 px-3 rounded-md bg-zinc-600 text-zinc-200">
+                    { db.label || <i className="text-zinc-400">No Label</i> }
+                  </div>
+                  { db.uniq_id && <div className="font-mono text-sm break-all p-1 px-3 rounded-md md:rounded-full bg-red-900 text-red-100">
+                    { db.uniq_id }
+                  </div>}
+                </div>
                 <div className="flex items-center gap-2">
                   <img 
                     className="w-6 h-6 object-contain"
@@ -178,6 +190,8 @@ export function ZSDatabaseView(props: ZSDatabaseViewProps) {
         loading={loading_delete}
         onYes={deleteDatabase} /> }
       <ZSDatabaseCreateModal
+        label={label}
+        setLabel={setLabel}
         open={create_modal_open}
         setOpen={setCreateModalOpen}
         loading={loading_submit}

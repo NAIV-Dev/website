@@ -14,6 +14,8 @@ export interface T_updateDomain_body {
   name?: string
 }
 
+
+
 export type T_updateDomain = (request: {
   headers: T_updateDomain_headers
   path: T_updateDomain_path
@@ -23,3 +25,4 @@ export type T_updateDomain = (request: {
 export const method = 'put';
 export const url_path = '/domain/:domain_name';
 export const alias = 'updateDomain';
+export const is_streaming = false;

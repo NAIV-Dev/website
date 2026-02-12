@@ -10,5 +10,6 @@ export interface User {
   max_domain_name_allowed: number;
   max_database_allowed: number;
   email_verification_token?: string;
+  reset_password_token?: string;
   created_at: Date;
 }

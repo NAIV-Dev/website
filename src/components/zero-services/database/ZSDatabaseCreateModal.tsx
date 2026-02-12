@@ -1,7 +1,10 @@
 import { Button, Input, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@heroui/react";
 import { Database } from "../../../api-client/model/table/Database";
+import { useEffect } from "react";
 
 interface ZSDatabaseCreateModalProps {
+  label: string
+  setLabel(label: string): void
   loading?: boolean
   open: boolean
   setOpen(open: boolean): void
@@ -9,6 +12,10 @@ interface ZSDatabaseCreateModalProps {
 }
 
 export function ZSDatabaseCreateModal(props: ZSDatabaseCreateModalProps) {
+  useEffect(() => {
+    props.setLabel('');
+  }, []);
+
   return (
     <Modal className="dark" isOpen={props.open} onOpenChange={props.setOpen}>
       <ModalContent>
@@ -24,6 +31,12 @@ export function ZSDatabaseCreateModal(props: ZSDatabaseCreateModalProps) {
               <div className="text-zinc-400 text-sm">
                 If you're mostly storing text data (like short messages, user info), you can expect around 200,000-400,000 rows depending on row size. If you're storing binary or blob data, the usable rows will shrink quickly.
               </div>
+              <Input
+                placeholder="Your Database Label"
+                label="DB Label"
+                value={props.label}
+                labelPlacement={'outside-top'}
+                onChange={e => props.setLabel(e.target.value)} />
             </ModalBody>
             <ModalFooter>
               <Button 

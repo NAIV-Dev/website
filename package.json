@@ -7,7 +7,8 @@
     "dev": "vite --port 9416",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "codegen": "npx @naiv/codegen-axios-client -d ../naiv-web-api/design -o src/api-client"
   },
   "dependencies": {
     "@heroui/react": "^2.8.4",

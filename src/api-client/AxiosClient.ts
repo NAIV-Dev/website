@@ -10,11 +10,18 @@ import { T_createDatabase } from "./api/createDatabase";
 import { T_getDatabase } from "./api/getDatabase";
 import { T_getDatabaseUsageQuota } from "./api/getDatabaseUsageQuota";
 import { T_deleteDatabase } from "./api/deleteDatabase";
+import { T_getDBCredential } from "./api/getDBCredential";
 import { T_getDomains } from "./api/getDomains";
 import { T_createDomain } from "./api/createDomain";
 import { T_getDomain } from "./api/getDomain";
 import { T_updateDomain } from "./api/updateDomain";
 import { T_deleteDomain } from "./api/deleteDomain";
+
+export type OnMessage<T> = (chunk: T, is_complete: boolean) => void;
+export interface StreamResponse<T> {
+  cancel(): void
+  stream(onMessage: OnMessage<T>): Promise<void>
+}
 
 export namespace AxiosClient {
 
@@ -25,7 +32,7 @@ export namespace AxiosClient {
       }
       return encodeURIComponent(String(path_param[key]));
     });
-    const url = new URL(build_path, base_url);
+    const url = new URL((base_url.endsWith('/') ? base_url : base_url + '/') + build_path.replace(/^\/+/, ''));
     return url.toString();
   }
   export class BaseURL {
@@ -73,7 +80,7 @@ export namespace AxiosClient {
   }
   export const createDatabase: T_createDatabase = async (req, base_url: string = BaseURL.instance.base_url) => {
     const final_url = __build_path(base_url, '/database', {});
-    return (await axios['post'](final_url, {}, { headers: req.headers as any, })).data as any;
+    return (await axios['post'](final_url, req.body, { headers: req.headers as any, })).data as any;
   }
   export const getDatabase: T_getDatabase = async (req, base_url: string = BaseURL.instance.base_url) => {
     const final_url = __build_path(base_url, '/database/:id', req.path);
@@ -86,6 +93,10 @@ export namespace AxiosClient {
   export const deleteDatabase: T_deleteDatabase = async (req, base_url: string = BaseURL.instance.base_url) => {
     const final_url = __build_path(base_url, '/database/:id', req.path);
     return (await axios['delete'](final_url, { headers: req.headers as any, })).data as any;
+  }
+  export const getDBCredential: T_getDBCredential = async (req, base_url: string = BaseURL.instance.base_url) => {
+    const final_url = __build_path(base_url, '/db-credential', {});
+    return (await axios['get'](final_url, { headers: req.headers as any, })).data as any;
   }
   export const getDomains: T_getDomains = async (req, base_url: string = BaseURL.instance.base_url) => {
     const final_url = __build_path(base_url, '/domain', {});

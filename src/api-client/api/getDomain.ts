@@ -8,6 +8,8 @@ export interface T_getDomain_path {
   domain_name: string
 }
 
+
+
 export type T_getDomain = (request: {
   headers: T_getDomain_headers
   path: T_getDomain_path
@@ -16,3 +18,4 @@ export type T_getDomain = (request: {
 export const method = 'get';
 export const url_path = '/domain/:domain_name';
 export const alias = 'getDomain';
+export const is_streaming = false;

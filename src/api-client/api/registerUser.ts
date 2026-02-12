@@ -7,6 +7,8 @@ export interface T_registerUser_body {
   password: string
 }
 
+
+
 export type T_registerUser = (request: {
   body: T_registerUser_body
 }, base_url?: string) => Promise<User>;
@@ -14,3 +16,4 @@ export type T_registerUser = (request: {
 export const method = 'post';
 export const url_path = '/auth/register';
 export const alias = 'registerUser';
+export const is_streaming = false;
