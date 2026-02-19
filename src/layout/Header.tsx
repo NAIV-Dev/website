@@ -66,9 +66,9 @@ export function Header(props: HeaderProps) {
                 Zero Services
               </Link>
               <Link 
-                href={'/playground'}
+                href={'https:///sendmail.naiv.dev'}
                 className="text-rose-400">
-                Playground
+                SendMail
               </Link>
             </div>
           </div>
